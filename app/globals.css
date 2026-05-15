@@ -439,7 +439,14 @@ a {
   letter-spacing: 0;
 }
 
-.article-flow p,
+.article-flow p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 .ai-callout p {
   max-width: 780px;
   margin: 0;
