@@ -102,7 +102,7 @@ a {
 
 .brand {
   gap: 12px;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 750;
   letter-spacing: 0;
 }
@@ -128,7 +128,7 @@ a {
 .search-box span {
   width: 100%;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -245,7 +245,7 @@ a {
   outline: 0;
   background: transparent;
   color: var(--text);
-  font-size: 22px;
+  font-size: 14px;
 }
 
 .search-modal-field kbd,
@@ -294,13 +294,13 @@ a {
 
 .search-results strong {
   color: var(--text);
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .search-results small,
 .search-results p {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .search-results p {
@@ -365,7 +365,7 @@ a {
   gap: 14px;
   margin-bottom: 26px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -373,7 +373,7 @@ a {
 
 .doc-actions button {
   color: var(--text-soft);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 650;
   letter-spacing: 0;
   text-transform: none;
@@ -387,7 +387,7 @@ a {
   max-width: 860px;
   margin: 0 0 16px;
   color: var(--text);
-  font-size: clamp(34px, 4vw, 52px);
+  font-size: clamp(22px, 2.6vw, 34px);
   line-height: 1.02;
   letter-spacing: 0;
 }
@@ -396,7 +396,7 @@ a {
   max-width: 800px;
   margin: 0;
   color: var(--text-soft);
-  font-size: 20px;
+  font-size: 13px;
   line-height: 1.45;
 }
 
@@ -414,7 +414,7 @@ a {
 .ai-callout h2 {
   margin: 0 0 16px;
   color: var(--text);
-  font-size: 26px;
+  font-size: 17px;
   line-height: 1.18;
   letter-spacing: 0;
 }
@@ -424,7 +424,7 @@ a {
   max-width: 780px;
   margin: 0;
   color: var(--text-soft);
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.7;
 }
 
@@ -462,13 +462,13 @@ a {
 
 .feature-card h3 {
   margin: 0 0 14px;
-  font-size: 22px;
+  font-size: 14px;
 }
 
 .feature-card p {
   margin: 0;
   color: var(--text-soft);
-  font-size: 19px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -510,7 +510,7 @@ a {
   margin-top: 2px;
   color: var(--text-muted);
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .code-actions {
@@ -531,7 +531,7 @@ a {
   padding: 28px;
   color: var(--text);
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.65;
 }
 
@@ -563,7 +563,7 @@ a {
 .related-card span {
   display: block;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 760;
 }
 
@@ -588,12 +588,12 @@ a {
 
 .ai-callout h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 13px;
 }
 
 .ai-callout p {
   margin: 12px 0 18px;
-  font-size: 17px;
+  font-size: 12px;
 }
 
 .ai-callout label {
@@ -678,7 +678,7 @@ a {
   }
 
   .brand {
-    font-size: 22px;
+    font-size: 14px;
   }
 
   .mobile-menu-button {
@@ -726,7 +726,7 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 760;
   }
 
@@ -740,12 +740,12 @@ a {
   }
 
   .hero-section h1 {
-    font-size: 34px;
+    font-size: 22px;
   }
 
   .hero-section p,
   .article-flow p {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .feature-grid,
@@ -754,6 +754,6 @@ a {
   }
 
   .code-card pre {
-    font-size: 15px;
+    font-size: 12px;
   }
 }
