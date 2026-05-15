@@ -1,13 +1,22 @@
 "use client";
 
-import { Github, Layers3, Menu, Moon, Search, Sparkles, Sun } from "lucide-react";
+import { Github, Layers3, Menu, Moon, PanelLeft, Search, Sparkles, Sun } from "lucide-react";
 
-export function TopBar({ query, theme, onOpenMenu, onOpenSearch, onToggleTheme }) {
+export function TopBar({ query, theme, onOpenMenu, onOpenSearch, onToggleSidebar, sidebarCollapsed, onToggleTheme }) {
   return (
     <header className="topbar">
       <div className="brand">
         <button type="button" className="icon-button mobile-menu-button" onClick={onOpenMenu} aria-label="Abrir menu">
           <Menu size={21} />
+        </button>
+        <button
+          type="button"
+          className="icon-button sidebar-toggle-button"
+          onClick={onToggleSidebar}
+          aria-label={sidebarCollapsed ? "Mostrar sidebar" : "Esconder sidebar"}
+          title="Toggle sidebar (⌘B)"
+        >
+          <PanelLeft size={20} />
         </button>
         <Layers3 size={30} />
         <span>Codex Docs</span>
