@@ -409,7 +409,7 @@ a {
   max-width: 800px;
   margin: 0;
   color: var(--text-soft);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.45;
 }
 
@@ -422,7 +422,14 @@ a {
   scroll-margin-top: 130px;
 }
 
-.article-flow h2,
+.article-flow h2 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
 .related-panel h2,
 .ai-callout h2 {
   margin: 0 0 16px;
