@@ -782,11 +782,6 @@ a {
     font-size: 22px;
   }
 
-  .hero-section p,
-  .article-flow p {
-    font-size: 12px;
-  }
-
   .feature-grid,
   .related-grid {
     grid-template-columns: 1fr;
