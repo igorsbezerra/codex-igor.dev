@@ -15,6 +15,7 @@ export function DocsPortal() {
   const [theme, setTheme] = useState("light");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const activeDoc = docs.find((item) => item.id === activeId) ?? docs[0];
 
   useEffect(() => {
@@ -33,6 +34,12 @@ export function DocsPortal() {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         setSearchOpen(true);
+      }
+
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "b") {
+        event.preventDefault();
+        setSidebarCollapsed((collapsed) => !collapsed);
+        setMobileMenuOpen(false);
       }
 
       if (event.key === "Escape") {
@@ -84,14 +91,17 @@ export function DocsPortal() {
         theme={theme}
         onOpenMenu={() => setMobileMenuOpen(true)}
         onOpenSearch={() => setSearchOpen(true)}
+        onToggleSidebar={() => setSidebarCollapsed((collapsed) => !collapsed)}
+        sidebarCollapsed={sidebarCollapsed}
         onToggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")}
       />
 
-      <div className="layout-grid">
+      <div className={`layout-grid ${sidebarCollapsed ? "is-sidebar-collapsed" : ""}`}>
         <SideNav
           activeDocId={activeDoc.id}
           groupedDocs={filteredGroups}
           isOpen={mobileMenuOpen}
+          isCollapsed={sidebarCollapsed}
           onClose={() => setMobileMenuOpen(false)}
           onSelectDoc={selectDoc}
         />
