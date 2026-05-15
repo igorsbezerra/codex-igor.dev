@@ -381,6 +381,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState("light");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const activeDoc = docs.find((item) => item.id === activeId) ?? docs[0];
 
   useEffect(() => {
@@ -393,6 +394,32 @@ export default function Home() {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("docs-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    function onKeyDown(event) {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setSearchOpen(true);
+      }
+
+      if (event.key === "Escape") {
+        setSearchOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+    document.body.classList.add("is-searching");
+    window.requestAnimationFrame(() => {
+      document.querySelector(".search-modal input")?.focus();
+    });
+
+    return () => document.body.classList.remove("is-searching");
+  }, [searchOpen]);
 
   const filteredGroups = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -417,6 +444,24 @@ export default function Home() {
       }, {});
   }, [query]);
 
+  const searchResults = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    if (!normalizedQuery) return docs;
+
+    return docs.filter((item) => {
+      const searchable = [
+        item.group,
+        item.label,
+        item.title,
+        item.intro,
+        ...item.sections.map((section) => `${section.title} ${section.body}`),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return searchable.includes(normalizedQuery);
+    });
+  }, [query]);
+
   async function copyPage() {
     const text = `${activeDoc.title}\n\n${activeDoc.intro}\n\n${activeDoc.sections
       .map((section) => `${section.title}\n${section.body}`)
@@ -427,11 +472,50 @@ export default function Home() {
   function selectDoc(id) {
     setActiveId(id);
     setMobileMenuOpen(false);
+    setSearchOpen(false);
     window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
   }
 
   return (
     <main className="docs-shell">
+      {searchOpen && (
+        <div
+          className="search-overlay"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setSearchOpen(false);
+          }}
+        >
+          <section className="search-modal" aria-label="Busca global">
+            <label className="search-modal-field">
+              <Search size={24} />
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search..."
+                aria-label="Buscar na documentacao"
+              />
+              <kbd>esc</kbd>
+            </label>
+            <div className="search-results" aria-label="Resultados da busca">
+              {searchResults.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button type="button" onClick={() => selectDoc(item.id)} key={item.id}>
+                    <Icon size={18} />
+                    <span>
+                      <strong>{item.label}</strong>
+                      <small>{item.title}</small>
+                    </span>
+                  </button>
+                );
+              })}
+              {searchResults.length === 0 && <p>Nenhum resultado encontrado.</p>}
+            </div>
+          </section>
+        </div>
+      )}
+
       <header className="topbar">
         <div className="brand">
           <button
@@ -446,16 +530,11 @@ export default function Home() {
           <span>Codex Docs</span>
         </div>
 
-        <label className="search-box">
+        <button type="button" className="search-box" onClick={() => setSearchOpen(true)}>
           <Search size={20} />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search..."
-            aria-label="Buscar na documentacao"
-          />
+          <span>{query || "Search..."}</span>
           <kbd>⌘K</kbd>
-        </label>
+        </button>
 
         <div className="topbar-actions">
           <button type="button" className="ask-button">
