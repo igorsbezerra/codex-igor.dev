@@ -6,12 +6,12 @@ export function FeatureCards() {
       <article className="feature-card is-strong">
         <Rocket size={32} />
         <h3>Quickstart</h3>
-        <p>Crie sua primeira pagina de documentacao e veja o portal em acao.</p>
+        <p>Crie sua primeira página de documentação e veja o portal em ação.</p>
       </article>
       <article className="feature-card">
         <FileCode2 size={32} />
         <h3>Specification</h3>
-        <p>Consulte o formato completo para conteudo, temas e navegacao.</p>
+        <p>Consulte o formato completo para conteúdo, temas e navegação.</p>
       </article>
     </section>
   );

@@ -19,11 +19,11 @@ export function CodeBlock({ code }) {
           <span className="code-title">{code.title}</span>
           <span className="code-language">{code.language}</span>
         </div>
-        <div className="code-actions" aria-label="Acoes do codigo">
+        <div className="code-actions" aria-label="Ações do código">
           <button type="button" aria-label="Validar exemplo">
             <CheckCircle2 size={18} />
           </button>
-          <button type="button" onClick={copyCode} aria-label="Copiar codigo">
+          <button type="button" onClick={copyCode} aria-label="Copiar código">
             {copied ? <CheckCircle2 size={18} /> : <Copy size={18} />}
           </button>
           <button type="button" aria-label="Melhorar com IA">

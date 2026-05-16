@@ -8,8 +8,8 @@ export function AIAssistantPanel() {
         <h2>Assistente integrado</h2>
       </div>
       <p>
-        Use o conteudo aberto como contexto para perguntar, resumir ou gerar proximos exemplos sem perder o ponto da
-        documentacao.
+        Use o conteúdo aberto como contexto para perguntar, resumir ou gerar próximos exemplos sem perder o ponto da
+        documentação.
       </p>
       <label>
         <input placeholder="Ask a question..." aria-label="Perguntar ao assistente" />

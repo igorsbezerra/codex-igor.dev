@@ -75,6 +75,12 @@ export function DocsPortal() {
     window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
   }
 
+  function selectRelatedDoc(title) {
+    const relatedDoc = docs.find((item) => item.label === title || item.title === title);
+    if (!relatedDoc) return;
+    selectDoc(relatedDoc.id);
+  }
+
   return (
     <main className="docs-shell">
       <SearchDialog
@@ -105,7 +111,7 @@ export function DocsPortal() {
           onClose={() => setMobileMenuOpen(false)}
           onSelectDoc={selectDoc}
         />
-        <DocContent doc={activeDoc} onCopyPage={copyPage} />
+        <DocContent doc={activeDoc} onCopyPage={copyPage} onSelectRelatedDoc={selectRelatedDoc} />
         <RightToc sections={activeDoc.sections} />
       </div>
     </main>

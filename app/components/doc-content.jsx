@@ -6,7 +6,7 @@ import { CodeBlock } from "./code-block";
 import { FeatureCards } from "./feature-cards";
 import { RelatedLinks } from "./related-links";
 
-export function DocContent({ doc, onCopyPage }) {
+export function DocContent({ doc, onCopyPage, onSelectRelatedDoc }) {
   return (
     <article className="content-card">
       <div className="doc-actions">
@@ -35,7 +35,7 @@ export function DocContent({ doc, onCopyPage }) {
       </div>
 
       <CodeBlock code={doc.code} />
-      <RelatedLinks items={doc.related} />
+      <RelatedLinks items={doc.related} onSelectDoc={onSelectRelatedDoc} />
       <AIAssistantPanel />
     </article>
   );

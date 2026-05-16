@@ -21,7 +21,7 @@ export function SearchDialog({ isOpen, query, results, onClose, onQueryChange, o
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
             placeholder="Search..."
-            aria-label="Buscar na documentacao"
+            aria-label="Buscar na documentação"
           />
           <kbd>esc</kbd>
         </label>
