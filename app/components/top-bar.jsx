@@ -19,7 +19,7 @@ export function TopBar({ query, theme, onOpenMenu, onOpenSearch, onToggleSidebar
           <PanelLeft size={20} />
         </button>
         <Layers3 size={30} />
-        <span>Codex Docs</span>
+        <span>Java 21 Docs</span>
       </div>
 
       <button type="button" className="search-box" onClick={onOpenSearch}>
