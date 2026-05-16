@@ -2,7 +2,7 @@ import { Menu } from "lucide-react";
 
 export function RightToc({ sections }) {
   return (
-    <aside className="right-toc" aria-label="Nesta pagina">
+    <aside className="right-toc" aria-label="Nesta página">
       <div>
         <div className="toc-title">
           <Menu size={18} />

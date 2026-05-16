@@ -1,6 +1,6 @@
 import { Link as LinkIcon } from "lucide-react";
 
-export function RelatedLinks({ items }) {
+export function RelatedLinks({ items, onSelectDoc }) {
   return (
     <section className="related-panel" aria-labelledby="related-title">
       <div className="section-heading">
@@ -9,10 +9,10 @@ export function RelatedLinks({ items }) {
       </div>
       <div className="related-grid">
         {items.map(([title, description]) => (
-          <a href="#" className="related-card" key={title}>
+          <button type="button" className="related-card" onClick={() => onSelectDoc(title)} key={title}>
             <span>{title}</span>
             <p>{description}</p>
-          </a>
+          </button>
         ))}
       </div>
     </section>
