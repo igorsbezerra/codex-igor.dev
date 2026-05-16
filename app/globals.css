@@ -511,7 +511,6 @@ a {
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--surface);
-  box-shadow: inset 0 -12px 0 color-mix(in srgb, var(--text) 10%, transparent);
 }
 
 .code-toolbar {
